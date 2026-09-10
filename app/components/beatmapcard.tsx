@@ -11,15 +11,17 @@ interface ProfileAttributes {
   playTime: number;
   nation: string;
 }
-
+{
+  /*option for horizontal cards alongside vertical cards?*/
+}
 export default function BeatmapCard(props: ProfileAttributes) {
   return (
-    <div className="rounded-lg, shadow-md, p-6, bg-pink">
-      <h1>
+    <div className="w-max rounded border-4 border-gray-900 bg-linear-65 from-pink-500 to-rose-600 text-center text-white shadow-md ring-4 ring-white">
+      <h1 className="border-b-4 text-center">
         {props.name} - {props.joinDate} - {props.nation}
       </h1>
-      <img src={props.img} />
-      <h1 className="">
+      <img src={props.img} className="mx-auto flex" />
+      <h1 className="border-t-4">
         #{props.rankGlobal} Global - #{props.rankNation} Country
       </h1>
       <h1>
