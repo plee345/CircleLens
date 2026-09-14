@@ -3,9 +3,9 @@ import { Link } from "react-router";
 
 export default function Navbar() {
   return (
-    <div className="flex items-center justify-between p-4 text-white border-b-gray-600">
-      <div className="justify-left font-bold">CircleLens</div>
-      <div className="flex gap-6">
+    <div className="mb-8 flex items-center justify-between border-b border-gray-500 p-4 text-(--text)">
+      <div className="justify-left font-bold md:mx-40">CircleLens</div>
+      <div className="flex gap-6 md:mx-40">
         <span>
           <button>Test</button>
         </span>

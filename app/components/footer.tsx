@@ -1,8 +1,8 @@
 export default function Footer() {
   return (
-    <footer className="fixed bottom-0 left-0 flex w-full place-items-end items-end justify-between bg-slate-950 p-4 text-white">
-      <div className="justify-left font-bold">Logo</div>
-      <div className="flex gap-2">
+    <footer className="mt-8 bottom-0 left-0 flex w-full place-items-end items-end justify-between border-t border-gray-500 p-4 text-(--text)">
+      <div className="justify-left font-bold md:mx-40">Logo</div>
+      <div className="flex gap-2 md:mx-40">
         <span className="">
           <a>Home</a>
         </span>

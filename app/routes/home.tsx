@@ -12,46 +12,16 @@ export function meta({ }: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <Navbar />
-      <div className="md:mx-25">
-        <div className="col-span-2 border-l-1 border-r-1 border-white bg-slate-950 p-4 rounded">
-          <h1 className="text-center text-5xl">Welcome To CircleLens</h1>
-          <h3 className="p-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
-          </h3>
-          <h3 className="p-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
-          </h3>
-          <h3 className="p-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
-          </h3>
-          <h3 className="p-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
-          </h3>
-        </div>
-        <div className="mx-auto grid grid-flow-col grid-rows-3 gap-4 p-4">
-          <div className="row-span-3 border-r-1 border-white bg-gray-800 p-4">
+      <div className="md:mx-40">
+        <div className="grid grid-cols-4 gap-4">
+          <div className="col-span-4 flex flex-col justify-evenly text-center text-2xl font-bold">
+            <span className="text-6xl leading-[2.0] text-(--text)">
+              Design Custom Cards Using Advanced Stats
+            </span>
+          </div>
+          <div className="col-span-2">
             <div className="flex justify-center">
               <BeatmapCard
                 img="https://media.tenor.com/ZLHdbFbs26sAAAAj/kirby-cute.gif"
@@ -67,42 +37,31 @@ export default function Home() {
                 playTime={971}
               />
             </div>
-            <h1 className="text-center">
+            <h1 className="text-center p-4">
               Example of a profile card that is generated from CircleLens.
             </h1>
-          </div>
-          <div className="col-span-2 row-span-3 gap-8 space-y-8">
-            <div className="rounded border border-rose-600 bg-slate-950">
-              <h1>
-                Vel sapiente sunt quo consequatur corporis est quas laboriosam et
-                nemo quia qui omnis repellat quo iste iure. Et soluta voluptatum rem
-                quia consectetur sed adipisci exercitationem et blanditiis autem.
-                Est iste possimus At earum beatae aut illo natus ea adipisci
-                nesciunt rem omnis odit.
-              </h1>
+            <div className="flex justify-center">
+              <BeatmapCard
+                img="https://media.tenor.com/ZLHdbFbs26sAAAAj/kirby-cute.gif"
+                name="plee"
+                joinDate="May 2018"
+                nation="United States"
+                rankGlobal={872}
+                rankNation={189}
+                totalPP={14107}
+                accuracy={98.71}
+                playCount={51505}
+                hitsPerPlay={323}
+                playTime={971}
+              />
             </div>
-            <div className="rounded border border-yellow-400 bg-slate-950">
-              <h1>
-                Vel sapiente sunt quo consequatur corporis est quas laboriosam et
-                nemo quia qui omnis repellat quo iste iure. Et soluta voluptatum rem
-                quia consectetur sed adipisci exercitationem et blanditiis autem.
-                Est iste possimus At earum beatae aut illo natus ea adipisci
-                nesciunt rem omnis odit.
-              </h1>
-            </div>
-            <div className="rounded border border-green-500 bg-slate-950">
-              <h1>
-                Vel sapiente sunt quo consequatur corporis est quas laboriosam et
-                nemo quia qui omnis repellat quo iste iure. Et soluta voluptatum rem
-                quia consectetur sed adipisci exercitationem et blanditiis autem.
-                Est iste possimus At earum beatae aut illo natus ea adipisci
-                nesciunt rem omnis odit.
-              </h1>
-            </div>
+            <h1 className="text-center p-4">
+              Example of a profile card that is generated from CircleLens.
+            </h1>
           </div>
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
