@@ -4,7 +4,8 @@ import { Link } from "react-router";
 export default function Navbar() {
   return (
     <div className="mb-8 flex items-center justify-between border-b border-gray-500 p-4 text-(--text)">
-      <div className="justify-left font-bold md:mx-40">CircleLens</div>
+      {/*make animation to add text when hovering logo*/}
+      <div className="justify-left md:mx-40 size-12 rounded-full bg-conic/decreasing from-violet-700 via-lime-300 to-violet-700"></div>
       <div className="flex gap-6 md:mx-40">
         <span>
           <button>Test</button>
