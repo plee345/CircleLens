@@ -16,7 +16,7 @@ interface ProfileAttributes {
 }
 export default function BeatmapCard(props: ProfileAttributes) {
   return (
-    <div className="w-max rounded border-2 border-gray-900 bg-linear-65 from-pink-500 to-rose-600 text-center text-white shadow-xl/50 ring-4 ring-white">
+    <div className="w-max rounded border-2 border-gray-900 bg-linear-65 from-pink-500 to-rose-600 text-center text-white shadow-xl/40 ring-4 ring-white">
       <h1 className="border-b-4 text-center">
         {props.name} - {props.joinDate} - {props.nation}
       </h1>
