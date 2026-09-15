@@ -9,7 +9,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "~/components/ui/table"
+} from "~/components/ui/table";
 
 import {
   Pagination,
@@ -19,7 +19,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "~/components/ui/pagination"
+} from "~/components/ui/pagination";
 
 const playerTableData = [
   {
@@ -29,7 +29,7 @@ const playerTableData = [
     acc: "98.71",
     xPP: "15,0000",
     xRank: "600",
-    xStarRating: "9.00"
+    xStarRating: "9.00",
   },
 
   {
@@ -39,7 +39,7 @@ const playerTableData = [
     acc: "98.71",
     xPP: "15,0000",
     xRank: "600",
-    xStarRating: "9.00"
+    xStarRating: "9.00",
   },
 
   {
@@ -49,7 +49,7 @@ const playerTableData = [
     acc: "98.71",
     xPP: "15,0000",
     xRank: "600",
-    xStarRating: "9.00"
+    xStarRating: "9.00",
   },
 ];
 
@@ -57,7 +57,7 @@ export default function DailyRotation() {
   return (
     <div className="flex min-h-dvh flex-col">
       <Navbar />
-      <div className="mx-4 md:mx-50 bg-secondary">
+      <div className="mx-4 rounded-sm bg-secondary md:mx-50">
         <Table className="border-separate border-spacing-x-0 border-spacing-y-1">
           {/*<TableCaption>A list of your recent invoices.</TableCaption>*/}
           <TableHeader>
@@ -72,8 +72,11 @@ export default function DailyRotation() {
             </TableRow>
           </TableHeader>
           <TableBody className="bg-primary">
-            {playerTableData.map((data) =>
-              <TableRow key={data.player} className="border-0 [&>td:first-child]:rounded-l-md [&>td:last-child]:rounded-r-md overflow-hidden">
+            {playerTableData.map((data) => (
+              <TableRow
+                key={data.player}
+                className="overflow-hidden border-0 [&>td:first-child]:rounded-l-md [&>td:last-child]:rounded-r-md"
+              >
                 <TableCell>#{data.rank}</TableCell>
                 <TableCell>{data.player}</TableCell>
                 <TableCell>{data.pp}pp</TableCell>
@@ -82,7 +85,7 @@ export default function DailyRotation() {
                 <TableCell>{data.xRank}</TableCell>
                 <TableCell>{data.xStarRating}*</TableCell>
               </TableRow>
-            )}
+            ))}
           </TableBody>
         </Table>
       </div>
@@ -92,12 +95,12 @@ export default function DailyRotation() {
             <PaginationPrevious href="#" />
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink href="#" isActive>1</PaginationLink>
+            <PaginationLink href="#" isActive>
+              1
+            </PaginationLink>
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink href="#">
-              2
-            </PaginationLink>
+            <PaginationLink href="#">2</PaginationLink>
           </PaginationItem>
           <PaginationItem>
             <PaginationLink href="#">3</PaginationLink>
