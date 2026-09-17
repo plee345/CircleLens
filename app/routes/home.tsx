@@ -1,10 +1,10 @@
 import type { Route } from "./+types/home";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
-import BeatmapCard from "../components/beatmapcard";
-import { AspectRatio } from "~/components/ui/aspect-ratio";
+import BeatmapCard, { BeatmapCardBuildDefault } from "../components/beatmapcard";
+import { AspectRatio } from "~/components/ui-shadcn/aspect-ratio";
 
-export function meta({}: Route.MetaArgs) {
+export function meta({ }: Route.MetaArgs) {
   return [
     { title: "CircleLens" },
     { name: "description", content: "Welcome to CircleLens!" },
@@ -28,7 +28,7 @@ export default function Home() {
           </div>
           <div className="col-span-2">
             <div className="flex justify-center">
-              <BeatmapCard
+              <BeatmapCardBuildDefault
                 img="https://media.tenor.com/ZLHdbFbs26sAAAAj/kirby-cute.gif"
                 name="plee"
                 joinDate="May 2018"
@@ -51,7 +51,7 @@ export default function Home() {
           </div>
           <div className="col-span-2">
             <div className="flex justify-center">
-              <BeatmapCard
+              <BeatmapCardBuildDefault
                 img="https://media.tenor.com/ZLHdbFbs26sAAAAj/kirby-cute.gif"
                 name="plee"
                 joinDate="May 2018"
@@ -74,7 +74,7 @@ export default function Home() {
           </div>
           <div className="col-span-2">
             <div className="flex justify-center">
-              <BeatmapCard
+              <BeatmapCardBuildDefault
                 img="https://media.tenor.com/ZLHdbFbs26sAAAAj/kirby-cute.gif"
                 name="plee"
                 joinDate="May 2018"
