@@ -1,5 +1,6 @@
 .DS_Store
 .env
+.prettierrc.json
 /node_modules/
 
 # React Router
