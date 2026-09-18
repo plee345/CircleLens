@@ -182,37 +182,38 @@ function BasicHorizontalPreset({ profile, adStats, options }: CardImageProps) {
   return (
     <Card className="relative w-[270px] max-w-full pt-3 bg-linear-65 from-pink-500 to-rose-600 ring-4 ring-white border-2 border-gray-900 shadow-2xl gap-0 border-t-4 border-b-4" >
       <div className="grid w-full grid-cols-2 gap-2 p-3">
-        <div className="col-span-2">
-          <div className="flex min-w-0 flex-col gap-2">
-            {options.name &&
-              <div className={"`${panelClassName}` text-center font-bold"}>
-                {profile.name}
-              </div>
-            }
-            <img
-              src={profile.img}
-              alt={profile.name}
-              className="h-24 w-full object-contain"
-            />
-            {options.joinDate &&
-              <div className={`${panelClassName} text-center font-bold`}>
-                {profile.joinDate}
-              </div>
-            }
-          </div>
-          <div className={`${panelClassName} flex min-w-0 flex-col justify-evenly gap-2 font-bold`}>
-            {options.pp && <h1>PP: {profile.totalPP}pp</h1>}
-            {options.accuracy && <h1>Acc: {profile.accuracy}%</h1>}
-            {options.playTime && <h1>Play Time: {profile.playTime}h</h1>}
-            {options.xPP && <h1>xPP: {adStats.xPP}pp</h1>}
-            {options.xRank && <h1>xRank: #{adStats.xRank}</h1>}
-            {options.xStarRating && (
-              <h1>xSR: {adStats.xStarRating}*</h1>
-            )}
-          </div>
+
+        <div className="flex min-w-0 flex-col gap-2">
+          {options.name &&
+            <div className={`${panelClassName} text-center font-bold`}>
+              {profile.name}
+            </div>
+          }
+          <img
+            src={profile.img}
+            alt={profile.name}
+            className="h-24 w-full object-contain"
+          />
+          {options.joinDate &&
+            <div className={`${panelClassName} text-center font-bold`}>
+              {profile.joinDate}
+            </div>
+          }
         </div>
+        <div className={`${panelClassName} flex min-w-0 flex-col justify-evenly gap-2 font-bold`}>
+          {options.pp && <h1>PP: {profile.totalPP}pp</h1>}
+          {options.accuracy && <h1>Acc: {profile.accuracy}%</h1>}
+          {options.playTime && <h1>Play Time: {profile.playTime}h</h1>}
+          {options.xPP && <h1>xPP: {adStats.xPP}pp</h1>}
+          {options.xRank && <h1>xRank: #{adStats.xRank}</h1>}
+          {options.xStarRating && (
+            <h1>xSR: {adStats.xStarRating}*</h1>
+          )}
+        </div>
+
       </div>
-      {isDisplayCardHeader &&
+      {
+        isDisplayCardHeader &&
         < CardHeader className="bg-muted/75">
           <div className="flex flex-wrap justify-center gap-2 my-2">
             {options.globalRank && <Badge variant="secondary">#{profile.rankGlobal} Global</Badge>}
@@ -240,37 +241,38 @@ function BasicVertialPreset({ profile, adStats, options }: CardImageProps) {
   return (
     <Card className="relative w-[270px] max-w-full pt-3 bg-linear-65 from-pink-500 to-rose-600 ring-4 ring-white border-2 border-gray-900 shadow-2xl gap-0 border-t-4 border-b-4" >
       <div className="grid w-full grid-cols-2 gap-2 p-3">
-        <div className="col-span-2">
-          <div className="flex min-w-0 flex-col gap-2">
-            {options.name &&
-              <div className={"`${panelClassName}` text-center font-bold"}>
-                {profile.name}
-              </div>
-            }
-            <img
-              src={profile.img}
-              alt={profile.name}
-              className="h-24 w-full object-contain"
-            />
-            {options.joinDate &&
-              <div className={`${panelClassName} text-center font-bold`}>
-                {profile.joinDate}
-              </div>
-            }
-          </div>
-          <div className={`${panelClassName} flex min-w-0 flex-col justify-evenly gap-2 font-bold`}>
-            {options.pp && <h1>PP: {profile.totalPP}pp</h1>}
-            {options.accuracy && <h1>Acc: {profile.accuracy}%</h1>}
-            {options.playTime && <h1>Play Time: {profile.playTime}h</h1>}
-            {options.xPP && <h1>xPP: {adStats.xPP}pp</h1>}
-            {options.xRank && <h1>xRank: #{adStats.xRank}</h1>}
-            {options.xStarRating && (
-              <h1>xSR: {adStats.xStarRating}*</h1>
-            )}
-          </div>
+
+        <div className="flex min-w-0 flex-col gap-2">
+          {options.name &&
+            <div className={`${panelClassName} text-center font-bold`}>
+              {profile.name}
+            </div>
+          }
+          <img
+            src={profile.img}
+            alt={profile.name}
+            className="h-24 w-full object-contain"
+          />
+          {options.joinDate &&
+            <div className={`${panelClassName} text-center font-bold`}>
+              {profile.joinDate}
+            </div>
+          }
         </div>
+        <div className={`${panelClassName} flex min-w-0 flex-col justify-evenly gap-2 font-bold`}>
+          {options.pp && <h1>PP: {profile.totalPP}pp</h1>}
+          {options.accuracy && <h1>Acc: {profile.accuracy}%</h1>}
+          {options.playTime && <h1>Play Time: {profile.playTime}h</h1>}
+          {options.xPP && <h1>xPP: {adStats.xPP}pp</h1>}
+          {options.xRank && <h1>xRank: #{adStats.xRank}</h1>}
+          {options.xStarRating && (
+            <h1>xSR: {adStats.xStarRating}*</h1>
+          )}
+        </div>
+
       </div>
-      {isDisplayCardHeader &&
+      {
+        isDisplayCardHeader &&
         < CardHeader className="bg-muted/75">
           <div className="flex flex-wrap justify-center gap-2 my-2">
             {options.globalRank && <Badge variant="secondary">#{profile.rankGlobal} Global</Badge>}
