@@ -1,16 +1,21 @@
 import { useState } from "react";
 import Navbar from "~/components/navbar";
 import Footer from "~/components/footer";
-import { BeatmapCardBuildDefault, BasicVertialPreset } from "~/components/beatmapcard";
 import { Checkbox } from "~/components/ui-shadcn/checkbox"
 import {
   Field,
+  FieldContent,
   FieldDescription,
-  FieldGroup,
   FieldLabel,
-  FieldLegend,
+  FieldTitle,
   FieldSet,
+  FieldLegend,
+  FieldGroup
 } from "~/components/ui-shadcn/field"
+import { Label } from "~/components/ui-shadcn/label"
+import { RadioGroup, RadioGroupItem } from "~/components/ui-shadcn/radio-group"
+import BeatmapCard from "~/components/beatmapcard";
+
 
 const initialOptions = {
   name: true,
@@ -27,7 +32,7 @@ const initialOptions = {
   xStarRating: true,
 };
 
-const presets = {
+const initialPresets = {
   defaultBasic: false,
   basicVertical: true,
   basicHorizontal: false,
@@ -37,10 +42,22 @@ const presets = {
 
 type CheckboxGroupProps = {
   options: typeof initialOptions;
+  presetOptions: typeof initialPresets;
+  onPresetOptionChange: (key: keyof typeof initialPresets, checked: boolean) => void;
   onOptionChange: (key: keyof typeof initialOptions, checked: boolean) => void;
 };
 
-export function CheckboxGroup({ options, onOptionChange }: CheckboxGroupProps) {
+
+export function CheckboxGroup({ options, onOptionChange, presetOptions, onPresetOptionChange }: CheckboxGroupProps) {
+  let selectedPreset = "";
+
+  for (const [presetName, isSelected] of Object.entries(presetOptions)) {
+    if (isSelected) {
+      selectedPreset = presetName;
+      break;
+    }
+  }
+
   return (
     <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-2">
       <FieldSet className="min-w-0">
@@ -153,37 +170,55 @@ export function CheckboxGroup({ options, onOptionChange }: CheckboxGroupProps) {
       </FieldSet>
       <FieldSet className="min-w-0">
         <FieldLegend>
-          Advanced Statistics
+          Card Presets
         </FieldLegend>
         <FieldDescription>
-          Attributes generated from your profile stats. The 'x' before the stat name stands for expected, it is your estimated value based off of your stats compared to the players around you.
+          Pre-Generated presets
         </FieldDescription>
-        <FieldGroup>
+        <RadioGroup
+          aria-label="Card Presets"
+          className="gap-5"
+          value={selectedPreset}
+          onValueChange={(value: keyof typeof initialPresets) =>
+            onPresetOptionChange(value, true)
+          }
+        >
           <Field orientation="horizontal">
-            <Checkbox
-              id="xPP-checkbox"
-              checked={options.xPP}
-              onCheckedChange={(checked) => onOptionChange("xPP", checked)}
+            <RadioGroupItem
+              id="defaultBasic-checkbox"
+              value="defaultBasic"
             />
-            <FieldLabel htmlFor="xPP-checkbox">xPerformance Points</FieldLabel>
+            <FieldLabel htmlFor="defaultBasic-checkbox">Default Basic Card</FieldLabel>
           </Field>
           <Field orientation="horizontal">
-            <Checkbox
-              id="xRank-checkbox"
-              checked={options.xRank}
-              onCheckedChange={(checked) => onOptionChange("xRank", checked)}
+            <RadioGroupItem
+              id="basicVertical-checkbox"
+              value="basicVertical"
             />
-            <FieldLabel htmlFor="xRank-checkbox">xRank</FieldLabel>
+            <FieldLabel htmlFor="basicVertical-checkbox">Basic Vertical Card</FieldLabel>
           </Field>
           <Field orientation="horizontal">
-            <Checkbox
-              id="xStarRating-checkbox"
-              checked={options.xStarRating}
-              onCheckedChange={(checked) => onOptionChange("xStarRating", checked)}
+            <RadioGroupItem
+              id="basicHorizontal-checkbox"
+              value="basicHorizontal"
             />
-            <FieldLabel htmlFor="xStarRating-checkbox">xStar Rating</FieldLabel>
+            <FieldLabel htmlFor="basicHorizontal-checkbox">Basic Horizontal Card</FieldLabel>
           </Field>
-        </FieldGroup>
+          <Field orientation="horizontal">
+            <RadioGroupItem
+              id="ticketHorizontal-checkbox"
+              value="ticketHorizontal"
+            />
+            <FieldLabel htmlFor="ticketHorizontal-checkbox">Ticket Horizontal Card</FieldLabel>
+          </Field>
+          <Field orientation="horizontal">
+            <RadioGroupItem
+              id="ticketVertical-checkbox"
+              value="ticketVertical"
+            />
+            <FieldLabel htmlFor="ticketVertical-checkbox">Ticket Vertical Card</FieldLabel>
+          </Field>
+        </RadioGroup>
       </FieldSet>
     </div>
   )
@@ -194,11 +229,24 @@ export type ProfileOptions = typeof initialOptions;
 
 export default function Profile() {
   const [options, setOptions] = useState(initialOptions);
+  const [presets, setPresets] = useState(initialPresets);
   function updateOption(key: keyof typeof options, checked: boolean) {
     setOptions((previous) => ({
       ...previous,
       [key]: checked,
     }));
+  }
+  function updatePresets(
+    key: keyof typeof initialPresets,
+    checked: boolean
+  ) {
+    setPresets({
+      defaultBasic: checked && key === "defaultBasic",
+      basicVertical: checked && key === "basicVertical",
+      basicHorizontal: checked && key === "basicHorizontal",
+      ticketHorizontal: checked && key === "ticketHorizontal",
+      ticketVertical: checked && key === "ticketVertical",
+    });
   }
 
   const profileData = {
@@ -225,16 +273,27 @@ export default function Profile() {
       <Navbar />
       <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-4 px-4 lg:grid-cols-[270px_minmax(0,1fr)]">
         <div className="min-w-0">
-          <BeatmapCardBuildDefault {...profileData} />
-        </div>
-        <div className="min-w-0">
-          <CheckboxGroup options={options} onOptionChange={updateOption} />
-        </div>
-        <div className="min-w-0">
-          <BasicVertialPreset
+          <BeatmapCard
             profile={profileData}
             adStats={advancedStats}
             options={options}
+            presets={presets}
+          />
+        </div>
+        <div className="min-w-0">
+          <CheckboxGroup
+            options={options}
+            onOptionChange={updateOption}
+            presetOptions={presets}
+            onPresetOptionChange={updatePresets}
+          />
+        </div>
+        <div className="min-w-0">
+          <BeatmapCard
+            profile={profileData}
+            adStats={advancedStats}
+            options={options}
+            presets={presets}
           />
         </div>
       </div>
