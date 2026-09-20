@@ -1,10 +1,9 @@
-import type { Route } from "./+types/home";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
-import BeatmapCard, { BeatmapCardBuildDefault } from "../components/beatmapcard";
+import BeatmapCard from "~/components/beatmapcard";
 import { AspectRatio } from "~/components/ui-shadcn/aspect-ratio";
 
-export function meta({ }: Route.MetaArgs) {
+export function meta() {
   return [
     { title: "CircleLens" },
     { name: "description", content: "Welcome to CircleLens!" },
@@ -12,6 +11,45 @@ export function meta({ }: Route.MetaArgs) {
 }
 
 export default function Home() {
+  const samplePlayerData = {
+    img: "https://media.tenor.com/ZLHdbFbs26sAAAAj/kirby-cute.gif",
+    name: "plee",
+    joinDate: "May 2018",
+    nation: "United States",
+    rankGlobal: 872,
+    rankNation: 189,
+    totalPP: 14107,
+    accuracy: 98.71,
+    playCount: 51505,
+    hitsPerPlay: 323,
+    playTime: 971,
+  };
+  const sampleCardProps = {
+    profile: samplePlayerData,
+    adStats: { xPP: 14500, xRank: 800, xStarRating: 7.8 },
+    options: {
+      name: true,
+      joinDate: true,
+      country: true,
+      globalRank: true,
+      countryRank: true,
+      playTime: true,
+      pp: true,
+      accuracy: true,
+      level: true,
+      xPP: true,
+      xRank: true,
+      xStarRating: true,
+    },
+    presets: {
+      defaultBasic: true,
+      basicVertical: false,
+      basicHorizontal: false,
+      ticketHorizontal: false,
+      ticketVertical: false,
+    },
+  };
+
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
@@ -28,19 +66,7 @@ export default function Home() {
           </div>
           <div className="col-span-2">
             <div className="flex justify-center">
-              <BeatmapCardBuildDefault
-                img="https://media.tenor.com/ZLHdbFbs26sAAAAj/kirby-cute.gif"
-                name="plee"
-                joinDate="May 2018"
-                nation="United States"
-                rankGlobal={872}
-                rankNation={189}
-                totalPP={14107}
-                accuracy={98.71}
-                playCount={51505}
-                hitsPerPlay={323}
-                playTime={971}
-              />
+              <BeatmapCard {...sampleCardProps} />
             </div>
             <h1 className="p-4 text-center">
               <p className="border-t-2">
@@ -51,19 +77,7 @@ export default function Home() {
           </div>
           <div className="col-span-2">
             <div className="flex justify-center">
-              <BeatmapCardBuildDefault
-                img="https://media.tenor.com/ZLHdbFbs26sAAAAj/kirby-cute.gif"
-                name="plee"
-                joinDate="May 2018"
-                nation="United States"
-                rankGlobal={872}
-                rankNation={189}
-                totalPP={14107}
-                accuracy={98.71}
-                playCount={51505}
-                hitsPerPlay={323}
-                playTime={971}
-              />
+              <BeatmapCard {...sampleCardProps} />
             </div>
             <h1 className="p-4 text-center">
               <p className="border-t-2">
@@ -74,19 +88,7 @@ export default function Home() {
           </div>
           <div className="col-span-2">
             <div className="flex justify-center">
-              <BeatmapCardBuildDefault
-                img="https://media.tenor.com/ZLHdbFbs26sAAAAj/kirby-cute.gif"
-                name="plee"
-                joinDate="May 2018"
-                nation="United States"
-                rankGlobal={872}
-                rankNation={189}
-                totalPP={14107}
-                accuracy={98.71}
-                playCount={51505}
-                hitsPerPlay={323}
-                playTime={971}
-              />
+              <BeatmapCard {...sampleCardProps} />
             </div>
             <h1 className="p-4 text-center">
               <p className="border-t-2">
