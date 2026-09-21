@@ -70,7 +70,7 @@ export default function Home() {
             </div>
             <h1 className="p-4 text-center">
               <p className="border-t-2">
-                Custom attributes can be applied to these cards to make them
+                Custom  can be applied to these cards to make them
                 unique.
               </p>
             </h1>

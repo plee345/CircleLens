@@ -18,11 +18,16 @@ A modern, production-ready template for building full-stack React applications u
 
 ### Installation
 
-Install the dependencies:
+Use Node.js 24.21.0 and npm 12.0.2. With [nvm](https://github.com/nvm-sh/nvm) installed, select the pinned Node version, install the pinned npm version, and install dependencies from the lockfile:
 
 ```bash
-npm install
+nvm install
+nvm use
+npm install --global npm@12.0.2
+npm ci
 ```
+
+The `.nvmrc` file pins Node.js. `package.json` declares the Node.js and npm versions and checks them before npm install, CI, and run commands. Docker uses the same versions.
 
 ### Development
 
@@ -32,7 +37,7 @@ Start the development server with HMR:
 npm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+Your application will be available at `http://localhost:3000`.
 
 ## Building for Production
 
@@ -68,15 +73,18 @@ The containerized application can be deployed to any platform that supports Dock
 
 If you're familiar with deploying Node applications, the built-in app server is production-ready.
 
-Make sure to deploy the output of `npm run build`
+Use the same Node.js and npm versions on your host. Deploy the output of `npm run build` along with the Express server and package files:
 
 ```
 ├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
+├── package-lock.json
+├── server.js
 ├── build/
 │   ├── client/    # Static assets
 │   └── server/    # Server-side code
 ```
+
+Install production dependencies with `npm ci --omit=dev`, then start the server with `npm start`.
 
 ## Styling
 
