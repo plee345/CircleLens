@@ -39,6 +39,8 @@ npm run dev
 
 Your application will be available at `http://localhost:3000`.
 
+The pinned Node.js runtime runs `server.ts` directly. Use `npm run typecheck` to check TypeScript types across the project.
+
 ## Building for Production
 
 Create a production build:
@@ -78,7 +80,7 @@ Use the same Node.js and npm versions on your host. Deploy the output of `npm ru
 ```
 ├── package.json
 ├── package-lock.json
-├── server.js
+├── server.ts
 ├── build/
 │   ├── client/    # Static assets
 │   └── server/    # Server-side code
